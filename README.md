@@ -31,3 +31,21 @@ B4.2 :
            </Route>
         </Routes>
     </Router>
+
+## Flex
+
+- Khi ta css : flex thì các component con sẽ được dí sát vào nhau , chiều cao của nó phụ thuộc vào nội dung của con dài nhất , các con khác cùng cấp với nó cũng sẽ có độ cao bằng con dài nhất
+- khi ta để h-screen thì độ dài của các con cũng sẽ là h-screen
+- Nhưng dù ta để w-screen thì độ dài các con cũng không chiếm các phần còn lại đang trống mà chỉ chiểm những phần theo nội dung quy đinh
+
+## Add Google Font
+
+- import ở trên cùng trong trang index.css
+- Đặt trong
+
+## Bổ sung
+
+npm i classnames
+Example : className={classNames('text-white', linkClasses)}
+
+- Để dùng được css : gap thì phải flex hoặc grid bên cạnh
