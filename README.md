@@ -49,3 +49,17 @@ npm i classnames
 Example : className={classNames('text-white', linkClasses)}
 
 - Để dùng được css : gap thì phải flex hoặc grid bên cạnh
+
+## Sử dụng HeadlessUI để tạo hiệu ứng trong Header
+
+B1 : Vào https://headlessui.com/
+B2 : Chọn 1 trong những cái mà mình muốn
+B3 : npm i @headlessui/react
+B4 : Giả sử ban đầu ta có:
+
+<div className="flex items-center gap-2 mr-2">
+    <HiOutlineChatAlt fontSize={24}/>
+    <HiOutlineBell fontSize={24}/>
+</div>
+
+-> import {Popover} from '@headlessui/react'
