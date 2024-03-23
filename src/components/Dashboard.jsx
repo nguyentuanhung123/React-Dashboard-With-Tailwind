@@ -1,11 +1,16 @@
-import { Link } from "react-router-dom"
+import BuyerProfileChart from "./BuyerProfileChart"
+import DashboardStatsGrid from "./DashboardStatsGrid"
+import TransactionChart from "./TransactionChart"
 
 const Dashboard = () => {
     return (
-       <div>
-            <p>This is Dashboard page</p>
-            <Link to="/products">go to products page</Link>
-       </div>
+        <div className="flex flex-col gap-4">
+            <DashboardStatsGrid />
+            <div className="flex flex-row gap-4 w-full">
+                <TransactionChart />
+                <BuyerProfileChart />
+            </div>
+        </div>
     )
 }
 

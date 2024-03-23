@@ -63,3 +63,7 @@ B4 : Giả sử ban đầu ta có:
 </div>
 
 -> import {Popover} from '@headlessui/react'
+
+## Rechart
+
+B1: npm i recharts
