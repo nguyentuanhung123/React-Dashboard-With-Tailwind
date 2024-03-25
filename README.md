@@ -67,3 +67,7 @@ B4 : Giả sử ban đầu ta có:
 ## Rechart
 
 B1: npm i recharts
+
+## Table
+
+B1 Khi sử dụng Table thì ta phải để trong thẻ table là width : 100% nếu không thead sẽ bị cụt lủn và có thể ngắn hơn cả tbody
