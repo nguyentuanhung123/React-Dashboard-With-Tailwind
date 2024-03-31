@@ -13,24 +13,49 @@ B1 : npm i -D react-router-dom
 B2 : Tạo thư mục components chứa file Layout.jsx là file tổng
 B3 : Sửa trong return :
 
-<div>
-<div>sidebar</div>
-<div>header</div>
-<div>
-{<Outlet />}
-</div>
-</div>
+```jsx
+import { Outlet } from "react-router-dom";
+import Sidebar from "./Sidebar";
+import Header from "./Header";
+
+const Layout = () => {
+  return (
+    <div className="flex flex-row bg-neutral-100 h-screen w-screen overflow-hidden">
+      <Sidebar />
+      <div className="flex-1 max-h-full overflow-y-auto">
+        <Header />
+        <div className="p-4">{<Outlet />}</div>
+      </div>
+    </div>
+  );
+};
+
+export default Layout;
+```
+
 B4 : Vào file App.jsx
 B4.1 : import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 B4.2 :
-    <Router>
-        <Routes>
-            <Route path="/" element={<Layout />}>
-                <Route index element={<Dashboard />} />
-                <Route path="product" element={<Product />}/>
-           </Route>
-        </Routes>
-    </Router>
+
+```jsx
+import { Outlet } from "react-router-dom";
+import Sidebar from "./Sidebar";
+import Header from "./Header";
+
+const Layout = () => {
+  return (
+    <div className="flex flex-row bg-neutral-100 h-screen w-screen overflow-hidden">
+      <Sidebar />
+      <div className="flex-1 max-h-full overflow-y-auto">
+        <Header />
+        <div className="p-4">{<Outlet />}</div>
+      </div>
+    </div>
+  );
+};
+
+export default Layout;
+```
 
 ## Flex
 
@@ -57,10 +82,12 @@ B2 : Chọn 1 trong những cái mà mình muốn
 B3 : npm i @headlessui/react
 B4 : Giả sử ban đầu ta có:
 
+```jsx
 <div className="flex items-center gap-2 mr-2">
-    <HiOutlineChatAlt fontSize={24}/>
-    <HiOutlineBell fontSize={24}/>
+  <HiOutlineChatAlt fontSize={24} />
+  <HiOutlineBell fontSize={24} />
 </div>
+```
 
 -> import {Popover} from '@headlessui/react'
 
@@ -70,4 +97,13 @@ B1: npm i recharts
 
 ## Table
 
-B1 Khi sử dụng Table thì ta phải để trong thẻ table là width : 100% nếu không thead sẽ bị cụt lủn và có thể ngắn hơn cả tbody
+Khi sử dụng Table thì ta phải để trong thẻ table là width : 100% nếu không sẽ bị cụt lủn
+
+## Date
+
+Nếu có date trong Data thì phải đổi
+Vd :
+
+```jsx
+<td>{new Date(order.order_date).toLocaleDateString()}</td> // 5/17/2022
+```
