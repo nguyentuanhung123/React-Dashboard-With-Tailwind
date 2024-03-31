@@ -9,9 +9,9 @@ Currently, two official plugins are available:
 
 ## Router
 
-B1 : npm i -D react-router-dom
-B2 : Tạo thư mục components chứa file Layout.jsx là file tổng
-B3 : Sửa trong return :
+- B1 : npm i -D react-router-dom
+- B2 : Tạo thư mục components chứa file Layout.jsx là file tổng
+- B3 : Sửa trong return :
 
 ```jsx
 import { Outlet } from "react-router-dom";
@@ -33,28 +33,31 @@ const Layout = () => {
 export default Layout;
 ```
 
-B4 : Vào file App.jsx
-B4.1 : import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-B4.2 :
+- B4: Vào file App.jsx
+- B4.1: import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+- B4.2:
 
 ```jsx
-import { Outlet } from "react-router-dom";
-import Sidebar from "./Sidebar";
-import Header from "./Header";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/shared/Layout";
+import Dashboard from "./components/Dashboard";
+import Products from "./components/Products";
 
-const Layout = () => {
+const App = () => {
   return (
-    <div className="flex flex-row bg-neutral-100 h-screen w-screen overflow-hidden">
-      <Sidebar />
-      <div className="flex-1 max-h-full overflow-y-auto">
-        <Header />
-        <div className="p-4">{<Outlet />}</div>
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="products" element={<Products />} />
+        </Route>
+        <Route path="login" element={<div>This is login page</div>}></Route>
+      </Routes>
+    </Router>
   );
 };
 
-export default Layout;
+export default App;
 ```
 
 ## Flex
